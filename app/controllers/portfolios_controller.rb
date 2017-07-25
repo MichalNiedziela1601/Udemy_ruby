@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  # before_action :set_portfolio
+  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
     @portfolio_items = Portfolio.all
@@ -37,11 +37,15 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   private
 
-  # def set_portfolio
-  #   @portfolio_item = Portfolio.find[params[:id]]
-  # end
+  def set_portfolio
+    @portfolio_item = Portfolio.find(params[:id])
+  end
 
   def portfolio_params
     params.require(:portfolio).permit(:title, :subtitle, :body)

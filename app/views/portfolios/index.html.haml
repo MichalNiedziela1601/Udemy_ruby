@@ -1,11 +1,15 @@
 .container
   %h1 Porfolio Items
 
-  = link_to new_portfolio_path
+  = link_to "Create new Item", new_portfolio_path
+  %br
 
   - @portfolio_items.each do |item|
-    %p
-      =item.title
-    %p #{item.subtitle}
-    %p #{item.body}
-    =image_tag item.thumb_image unless item.thumb_image.nil?
+    .portfolio
+      %p
+        =link_to "#{item.title}", portfolio_path(item.id)
+      %p #{item.subtitle}
+      %p #{item.body}
+      =image_tag item.thumb_image unless item.thumb_image.nil?
+      %p
+        =link_to "Edit", edit_portfolio_path(item.id), :class => "button button-primary"
