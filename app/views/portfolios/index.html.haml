@@ -1,4 +1,8 @@
 .container
+
+  - if notice
+    %p #{notice}
+
   %h1 Porfolio Items
 
   = link_to "Create new Item", new_portfolio_path
@@ -13,3 +17,4 @@
       =image_tag item.thumb_image unless item.thumb_image.nil?
       %p
         =link_to "Edit", edit_portfolio_path(item.id), :class => "button button-primary"
+        =link_to "Delete", item, method: :delete, data: { confirm: 'Are you sure?'}
