@@ -48,11 +48,17 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def find_for_topic
+    @portfolio_items - Portfolio.where(topic_id: 2)
+  end
+
   private
 
   def set_portfolio
     @portfolio_item = Portfolio.find(params[:id])
   end
+
+
 
   def portfolio_params
     params.require(:portfolio).permit(:title, :subtitle, :body)

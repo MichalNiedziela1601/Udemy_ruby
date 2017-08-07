@@ -1,7 +1,13 @@
+3.times do |topic|
+  Topic.create!(
+           title: "Topic #{topic}"
+  )
+end
 10.times do |blog|
   Blog.create!(
       title: "My blog post #{blog}",
-      body: "Lorem ipsum"
+      body: "Lorem ipsum",
+      topic_id: Topic.offset(rand(Topic.count)).first.id
   )
 end
 
