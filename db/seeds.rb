@@ -1,6 +1,6 @@
 3.times do |topic|
   Topic.create!(
-           title: "Topic #{topic}"
+      title: "Topic #{topic}"
   )
 end
 10.times do |blog|
@@ -15,8 +15,8 @@ puts "10 blog post created"
 
 5.times do |skill|
   Skill.create!(
-           title: "Rails #{skill}",
-           percent_utilized: 15
+      title: "Rails #{skill}",
+      percent_utilized: 15
   )
 end
 
@@ -29,5 +29,11 @@ puts "5 skills created"
       body: "Next lorem ipsum",
       main_image: "http://via.placeholder.com/600x400",
       thumb_image: "http://via.placeholder.com/350x200"
+  )
+end
+
+3.times do |technology|
+  Portfolio.last.technologies.create!(
+      name: "Technology #{technology}"
   )
 end
