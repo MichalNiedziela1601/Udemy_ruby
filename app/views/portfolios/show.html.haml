@@ -5,4 +5,11 @@
 
   %p #{@portfolio_item.body}
 
+  %h2 Technologies Used:
+
+  - @portfolio_item.technologies.each do |tech|
+    %p
+      =tech.name
+
+
   =image_tag @portfolio_item.main_image
