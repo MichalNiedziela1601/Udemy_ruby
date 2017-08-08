@@ -48,8 +48,8 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def find_for_topic
-    @portfolio_items - Portfolio.where(topic_id: 2)
+  def topic
+    @portfolio_items = Portfolio.topic
   end
 
   private
