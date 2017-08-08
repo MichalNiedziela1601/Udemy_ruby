@@ -1,0 +1,5 @@
+%ul
+  = f.fields_for :technologies do |tech|
+    %li
+      = tech.label :name
+      = tech.text_field :name
