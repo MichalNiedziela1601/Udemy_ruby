@@ -7,9 +7,15 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
-      %nav
-        %ul
-          - navigation.each do |navi|
-            %li =navi
+    %p.notice
+      = notice
+    %p.alert
+      = alert
+
+    - if current_user
+      =link_to "Logout", destroy_user_session_path, method: :delete
+    - else
+      =link_to "Register", new_user_registration_path
+      =link_to "Login", new_user_session_path
+
     = yield
