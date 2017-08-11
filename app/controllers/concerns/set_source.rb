@@ -8,6 +8,6 @@ module SetSource
 
   def set_source
     session[:source] = params[:q] if params[:q]
-    session[:source].capitalize!
+    session[:source].capitalize! if session[:source]
   end
 end
