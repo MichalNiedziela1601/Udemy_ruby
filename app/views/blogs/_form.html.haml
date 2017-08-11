@@ -12,5 +12,7 @@
   .field
     = f.label :body
     = f.text_area :body
+  .field
+    = f.collection_select(:topic_id, Topic.all, :id, :title)
   .actions
     = f.submit 'Save'
